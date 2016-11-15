@@ -27,6 +27,6 @@
   },
   "homepage": "https://github.com/ruinangel/react-native-gifted-listview#readme",
   "dependencies": {
-    "react-native-gifted-spinner": "^0.1.0"
+    "react-native-gifted-spinner": "git+https://github.com/ruinangel/react-native-gifted-spinner.git"
   }
 }
