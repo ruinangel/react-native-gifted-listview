@@ -56,8 +56,6 @@ var GiftedListView = React.createClass({
       paginationWaitingView: null,
       emptyView: null,
       renderSeparator: null,
-      rowHasChanged:null,
-      distinctRows:null,
     };
   },
 
@@ -84,9 +82,6 @@ var GiftedListView = React.createClass({
     paginationWaitingView: React.PropTypes.func,
     emptyView: React.PropTypes.func,
     renderSeparator: React.PropTypes.func,
-
-    rowHasChanged:React.PropTypes.func,
-    distinctRows:React.PropTypes.func,
   },
 
   _setPage(page) { this._page = page; },
@@ -181,7 +176,7 @@ var GiftedListView = React.createClass({
     var ds = null;
     if (this.props.withSections === true) {
       ds = new ListView.DataSource({
-        rowHasChanged: this.props.rowHasChanged?this.props.rowHasChanged:(row1, row2) => row1 !== row2,
+        rowHasChanged: (row1, row2) => row1 !== row2,
         sectionHeaderHasChanged: (section1, section2) => section1 !== section2,
       });
       return {
@@ -191,7 +186,7 @@ var GiftedListView = React.createClass({
       };
     } else {
       ds = new ListView.DataSource({
-        rowHasChanged: this.props.rowHasChanged?this.props.rowHasChanged:(row1, row2) => row1 !== row2,
+        rowHasChanged: (row1, row2) => row1 !== row2,
       });
       return {
         dataSource: ds.cloneWithRows(this._getRows()),
@@ -248,11 +243,6 @@ var GiftedListView = React.createClass({
     } else {
       mergedRows = this._getRows().concat(rows);
     }
-
-    if(this.props.distinctRows){
-      mergedRows = this.props.distinctRows(mergedRows);
-    }
-    
     this._updateRows(mergedRows, options);
   },
 

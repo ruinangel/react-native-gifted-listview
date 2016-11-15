@@ -50,7 +50,7 @@
     "name": "Farid from Safi"
   },
   "bugs": {
-    "url": "https://github.com/ruinangel/react-native-gifted-listview/issues"
+    "url": "https://github.com/FaridSafi/react-native-gifted-listview/issues"
   },
   "dependencies": {
     "react-native-gifted-spinner": "0.1.0"
@@ -63,7 +63,7 @@
     "tarball": "https://registry.npmjs.org/react-native-gifted-listview/-/react-native-gifted-listview-0.0.15.tgz"
   },
   "gitHead": "28ad3eabc55ee560c1561773b64cdf4c0e853513",
-  "homepage": "https://github.com/ruinangel/react-native-gifted-listview#readme",
+  "homepage": "https://github.com/FaridSafi/react-native-gifted-listview#readme",
   "keywords": [
     "pull-to-refresh",
     "refreshable",
@@ -87,7 +87,7 @@
   "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ruinangel/react-native-gifted-listview.git"
+    "url": "git+https://github.com/FaridSafi/react-native-gifted-listview.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
