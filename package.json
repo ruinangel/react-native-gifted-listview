@@ -53,7 +53,7 @@
     "url": "https://github.com/FaridSafi/react-native-gifted-listview/issues"
   },
   "dependencies": {
-    "react-native-gifted-spinner": "0.1.0"
+    "react-native-gifted-spinner": "git+https://github.com/ruinangel/react-native-gifted-spinner.git"
   },
   "description": "A ListView with pull-to-refresh, infinite scrolling and more for Android and iOS React-Native apps",
   "devDependencies": {},
