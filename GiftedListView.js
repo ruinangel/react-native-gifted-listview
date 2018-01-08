@@ -99,71 +99,46 @@ var GiftedListView = createReactClass({
         return this._rows;
     },
 
-
     paginationFetchingView() {
         if (this.props.paginationFetchingView) {
             return this.props.paginationFetchingView();
         }
-
         return (
-            < View
-        style = {[this.defaultStyles.paginationView, this.props.customStyles.paginationView
-    ]
-    }>
-    <
-        GiftedSpinner / >
-        < / View >
-    )
-        ;
+            <View style={[this.defaultStyles.paginationView, this.props.customStyles.paginationView]}>
+                <GiftedSpinner />
+            </View>
+        );
     },
     paginationAllLoadedView() {
         if (this.props.paginationAllLoadedView) {
             return this.props.paginationAllLoadedView();
         }
-
         return (
-            < View
-        style = {[this.defaultStyles.paginationView, this.props.customStyles.paginationView
-    ]
-    }>
-    <
-        Text
-        style = {[this.defaultStyles.actionsLabel, this.props.customStyles.actionsLabel
-    ]
-    }>
-        ~
-        < / Text >
-        < / View >
-    )
-        ;
+            <View style={[this.defaultStyles.paginationView, this.props.customStyles.paginationView]}>
+                <Text style={[this.defaultStyles.actionsLabel, this.props.customStyles.actionsLabel]}>
+                ~
+                </Text>
+            </View>
+        );
     },
     paginationWaitingView(paginateCallback) {
         if (this.props.paginationWaitingView) {
             return this.props.paginationWaitingView(paginateCallback);
         }
-
         return (
-            < TouchableHighlight
-        underlayColor = '#c8c7cc'
-        onPress = {paginateCallback}
-        style = {[this.defaultStyles.paginationView, this.props.customStyles.paginationView
-    ]
-    }
-    >
-    <
-        Text
-        style = {[this.defaultStyles.actionsLabel, this.props.customStyles.actionsLabel
-    ]
-    }>
-        Load
-        more
-        < / Text >
-        < / TouchableHighlight >
-    )
-        ;
+            <TouchableHighlight
+                underlayColor='#c8c7cc'
+                onPress={paginateCallback}
+                style={[this.defaultStyles.paginationView, this.props.customStyles.paginationView]}
+            >
+                <Text style={[this.defaultStyles.actionsLabel, this.props.customStyles.actionsLabel]}>
+                    Load more
+                </Text>
+            </TouchableHighlight>
+        );
     },
     headerView() {
-        if (this.state.paginationStatus === 'firstLoad' || !this.props.headerView) {
+        if (this.state.paginationStatus === 'firstLoad' || !this.props.headerView){
             return null;
         }
         return this.props.headerView();
@@ -172,37 +147,18 @@ var GiftedListView = createReactClass({
         if (this.props.emptyView) {
             return this.props.emptyView(refreshCallback);
         }
-
         return (
-            < View
-        style = {[this.defaultStyles.defaultView, this.props.customStyles.defaultView
-    ]
-    }>
-    <
-        Text
-        style = {[this.defaultStyles.defaultViewTitle, this.props.customStyles.defaultViewTitle
-    ]
-    }>
-        Sorry, there
-        is
-        no
-        content
-        to
-        display
-        < / Text >
-
-        < TouchableHighlight
-        underlayColor = '#c8c7cc'
-        onPress = {refreshCallback}
-            >
-            < Text >
-            ↻
-    </
-        Text >
-        < / TouchableHighlight >
-        < / View >
-    )
-        ;
+            <View style={[this.defaultStyles.defaultView, this.props.customStyles.defaultView]}>
+                <Text style={[this.defaultStyles.defaultViewTitle, this.props.customStyles.defaultViewTitle]}>
+                    Sorry, there is no content to display
+                </Text>
+                <TouchableHighlight underlayColor='#c8c7cc' onPress={refreshCallback}>
+                    <Text>
+                    ↻
+                    </Text>
+                </TouchableHighlight>
+            </View>
+        );
     },
     renderSeparator() {
         if (this.props.renderSeparator) {
@@ -210,12 +166,8 @@ var GiftedListView = createReactClass({
         }
 
         return (
-            < View
-        style = {[this.defaultStyles.separator, this.props.customStyles.separator
-    ]
-    } />
-    )
-        ;
+            <View style={[this.defaultStyles.separator, this.props.customStyles.separator]} />
+    );
     },
 
     getInitialState() {
@@ -274,9 +226,9 @@ var GiftedListView = createReactClass({
     },
 
     _onPaginate() {
-        if (this.state.paginationStatus === 'allLoaded') {
+        if(this.state.paginationStatus==='allLoaded'){
             return null
-        } else {
+        }else {
             this.setState({
                 paginationStatus: 'fetching',
             });
@@ -335,62 +287,42 @@ var GiftedListView = createReactClass({
 
     renderRefreshControl() {
         if (this.props.renderRefreshControl) {
-            return this.props.renderRefreshControl({onRefresh: this._onRefresh});
+            return this.props.renderRefreshControl({ onRefresh: this._onRefresh });
         }
         return (
-            < RefreshControl
-        onRefresh = {this._onRefresh
-    }
-        refreshing = {this.state.isRefreshing
-    }
-        colors = {this.props.refreshableColors
-    }
-        progressBackgroundColor = {this.props.refreshableProgressBackgroundColor
-    }
-        size = {this.props.refreshableSize
-    }
-        tintColor = {this.props.refreshableTintColor
-    }
-        title = {this.props.refreshableTitle
-    }
-    />
-    )
-        ;
+            <RefreshControl
+                onRefresh={this._onRefresh}
+                refreshing={this.state.isRefreshing}
+                colors={this.props.refreshableColors}
+                progressBackgroundColor={this.props.refreshableProgressBackgroundColor}
+                size={this.props.refreshableSize}
+                tintColor={this.props.refreshableTintColor}
+                title={this.props.refreshableTitle}
+            />
+        );
     },
 
     render() {
         return (
-            < ListView
-        ref = "listview"
-        dataSource = {this.state.dataSource
-    }
-        renderRow = {this.props.rowView
-    }
-        renderSectionHeader = {this.props.sectionHeaderView
-    }
-        renderHeader = {this.headerView
-    }
-        renderFooter = {this._renderPaginationView
-    }
-        renderSeparator = {this.renderSeparator
-    }
+            <ListView
+                ref="listview"
+                dataSource={this.state.dataSource}
+                renderRow={this.props.rowView}
+                renderSectionHeader={this.props.sectionHeaderView}
+                renderHeader={this.headerView}
+                renderFooter={this._renderPaginationView}
+                renderSeparator={this.renderSeparator}
 
-        automaticallyAdjustContentInsets = {false}
-        scrollEnabled = {this.props.scrollEnabled
-    }
-        canCancelContentTouches = {true}
-        refreshControl = {this.props.refreshable === true ? this.renderRefreshControl() : null
-    }
+                automaticallyAdjustContentInsets={false}
+                scrollEnabled={this.props.scrollEnabled}
+                canCancelContentTouches={true}
+                refreshControl={this.props.refreshable === true ? this.renderRefreshControl() : null}
 
-        {...
-            this.props
-        }
+                {...this.props}
 
-        style = {this.props.style
-    }
-    />
-    )
-        ;
+                style={this.props.style}
+            />
+        );
     },
 
     defaultStyles: {
@@ -419,6 +351,5 @@ var GiftedListView = createReactClass({
         },
     },
 });
-
 
 module.exports = GiftedListView;
