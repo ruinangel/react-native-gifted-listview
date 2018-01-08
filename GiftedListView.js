@@ -10,6 +10,7 @@ import {
     RefreshControl,
 } from 'react-native';
 import PropTypes from 'prop-types';
+var createReactClass = require('create-react-class');
 
 // small helper function which merged two objects into one
 function MergeRecursive(obj1, obj2) {
@@ -29,7 +30,7 @@ function MergeRecursive(obj1, obj2) {
 
 var GiftedSpinner = require('react-native-gifted-spinner');
 
-var GiftedListView = React.createClass({
+var GiftedListView = createReactClass({
 
     getDefaultProps() {
         return {

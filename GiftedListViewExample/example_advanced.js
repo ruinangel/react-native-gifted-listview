@@ -12,11 +12,12 @@ import {
   TouchableHighlight,
   Platform
 } from 'react-native';
+var createReactClass = require('create-react-class');
 
 var GiftedListView = require('react-native-gifted-listview');
 var GiftedSpinner = require('react-native-gifted-spinner');
 
-var Example = React.createClass({
+var Example = createReactClass({
 
   /**
    * Will be called when refreshing

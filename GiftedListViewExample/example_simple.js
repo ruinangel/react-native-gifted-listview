@@ -12,8 +12,9 @@ import {
   TouchableHighlight
 } from 'react-native';
 var GiftedListView = require('react-native-gifted-listview');
+var createReactClass = require('create-react-class');
 
-var Example = React.createClass({
+var Example = createReactClass({
   /**
    * Will be called when refreshing
    * Should be replaced by your own logic
