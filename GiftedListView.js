@@ -198,7 +198,11 @@ var GiftedListView = createReactClass({
     },
 
     componentDidMount() {
+        this.mounted = true;
         this.props.onFetch(this._getPage(), this._postRefresh, {firstLoad: true});
+    },
+    componentWillUnmount() {
+        this.mounted = false;
     },
 
     setNativeProps(props) {
@@ -210,7 +214,7 @@ var GiftedListView = createReactClass({
     },
 
     _onRefresh(options = {}) {
-        if (this.isMounted()) {
+        if (this.mounted) {
             this.setState({
                 isRefreshing: true,
             });
@@ -220,7 +224,7 @@ var GiftedListView = createReactClass({
     },
 
     _postRefresh(rows = [], options = {}) {
-        if (this.isMounted()) {
+        if (this.mounted) {
             this._updateRows(rows, options);
         }
     },
