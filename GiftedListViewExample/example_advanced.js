@@ -2,16 +2,16 @@
  * Sample React Native App
  * https://github.com/facebook/react-native
  */
-'use strict';
 
-var React = require('react');
-var {
+'use strict';
+import React, {Component} from 'react';
+import {
   StyleSheet,
   Text,
   View,
   TouchableHighlight,
   Platform
-} = require('react-native');
+} from 'react-native';
 
 var GiftedListView = require('react-native-gifted-listview');
 var GiftedSpinner = require('react-native-gifted-spinner');

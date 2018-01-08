@@ -3,10 +3,7 @@
  * https://github.com/facebook/react-native
  */
 'use strict';
-
-var {
-  AppRegistry
-} = require('react-native');
+import {AppRegistry} from "react-native";
 
 var Example = require('./example_advanced.js');
 

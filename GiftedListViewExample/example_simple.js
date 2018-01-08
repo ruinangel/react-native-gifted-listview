@@ -4,18 +4,16 @@
  */
 'use strict';
 
-var React = require('react');
-var {
+import React, {Component} from 'react';
+import {
   StyleSheet,
   Text,
   View,
   TouchableHighlight
-} = require('react-native');
-
+} from 'react-native';
 var GiftedListView = require('react-native-gifted-listview');
 
 var Example = React.createClass({
-  
   /**
    * Will be called when refreshing
    * Should be replaced by your own logic
